@@ -9,8 +9,8 @@
     <div class="container">
         <img class="header_logo" src="image/логотип.svg" alt="логотип сервиса wishlist в виде буквы w">
         <nav class="header_nav nav">
-          <button class="nav_btn btn">Зарегистрироваться</button>
-          <button class="nav_btn btn">Войти</button>
+            <button class="nav_btn btn">Зарегистрироваться</button>
+            <button class="nav_btn btn">Войти</button>
         </nav>
         <button class="header_burger burger">
             <span class="burger_line"></span>
@@ -19,15 +19,206 @@
 </header>
 <main class="main">
     <section class="hero">
-        <h1 class="hero_title">WishList</h1>
-        <p class="hero_description">
-            Никогда не поздно поставить новую цель или обрести новую мечту...
-        </p>
+        <div class="container">
+            <h1 class="hero_title">WishList</h1>
+            <p class="hero_description">
+                Никогда не поздно поставить новую цель или обрести новую мечту...
+            </p>
+            <ol class="hero_steps steps">
+                <li class="steps_item">создайте список желаний</li>
+                <li class="steps_item">Поделитесь ссылкой с друзьями</li>
+                <li class="steps_item">Получите желанный подарок</li>
+            </ol>
+        </div>
     </section>
-    <section class="wishlist"></section>
-    <section class="edit edit_profile"></section>
-    <section class="edit edit_wish"></section>
-    <div class="modal"></div>
+    <section class="wishlist">
+        <div class="container">
+            <div class="wishlist_profile profile">
+                <img src="image/user%201.png" alt="фото" class="profile_avatar"/>
+                <div class="profile_content">
+                    <h2 class="profile_fullname">Иван Петров</h2>
+                    <p class="profile_birthday">15 июля исполнится 55 лет</p>
+                    <button class="profile_edit">
+                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.75 33.25H10.6875L28.1992 15.7384L22.2617 9.80086L4.75 27.3125V33.25ZM7.91667 28.6267L22.2617 14.2817L23.7183 15.7384L9.37333 30.0834H7.91667V28.6267ZM29.0858 5.20919C28.9394 5.06241 28.7654 4.94596 28.5738 4.86651C28.3823 4.78705 28.177 4.74615 27.9696 4.74615C27.7622 4.74615 27.5569 4.78705 27.3653 4.86651C27.1738 4.94596 26.9998 5.06241 26.8533 5.20919L23.9558 8.10669L29.8933 14.0442L32.7908 11.1467C32.9376 11.0002 33.0541 10.8262 33.1335 10.6347C33.213 10.4431 33.2539 10.2378 33.2539 10.0304C33.2539 9.82307 33.213 9.61774 33.1335 9.4262C33.0541 9.23466 32.9376 9.06067 32.7908 8.91419L29.0858 5.20919Z"
+                                  fill="white"/>
+                        </svg>
+                        редактировать профиль
+                    </button>
+                </div>
+            </div>
+            <p class="wishlist_description">
+                Это мой список желаний если вы мне хотите что-то подарить, то прошу выбирайте из списка ниже или карту
+                Ozon. Лучше нарушить эффект внезапности, чем подарить что-то ненужное или то, что у меня уже есть.
+            </p>
+            <ul class="wishlist_categories categories">
+                <li class="categories_item">
+                    <h3 class="categories_title">Гаджеты</h3>
+                    <ul class="wishlist_item">
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="categories_item">
+                    <h3 class="categories_title">Хобби</h3>
+                    <ul class="wishlist_item">
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                        <li class="item">
+                            <img src="image/наушники%202.png" alt="bugs" class="item_image"/>
+                            <h4 class="item_title">Xiaomi Redmi Buds 4 Pro </h4>
+                            <p class="item_price">5800 руб.</p>
+                            <button class="item_btn btn btn_castling">Выбрать</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="edit edit_profile">
+        <div class="container">
+            <form class="edit_form">
+                <fieldset class="edit_avatar">
+                    <img class="edit_avatar-image" src="image/user%201.png" alt=""/>
+                    <div class="edit_avatar-load">
+                        <label for="avatar-load" class="edit_label-avatar">
+                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.75 33.25H10.6875L28.1992 15.7384L22.2617 9.80086L4.75 27.3125V33.25ZM7.91667 28.6267L22.2617 14.2817L23.7183 15.7384L9.37333 30.0834H7.91667V28.6267ZM29.0858 5.20919C28.9394 5.06241 28.7654 4.94596 28.5738 4.86651C28.3823 4.78705 28.177 4.74615 27.9696 4.74615C27.7622 4.74615 27.5569 4.78705 27.3653 4.86651C27.1738 4.94596 26.9998 5.06241 26.8533 5.20919L23.9558 8.10669L29.8933 14.0442L32.7908 11.1467C32.9376 11.0002 33.0541 10.8262 33.1335 10.6347C33.213 10.4431 33.2539 10.2378 33.2539 10.0304C33.2539 9.82307 33.213 9.61774 33.1335 9.4262C33.0541 9.23466 32.9376 9.06067 32.7908 8.91419L29.0858 5.20919Z"
+                                      fill="white"/>
+                            </svg>
+                            Обновить фотографию
+                        </label>
+                        <input
+                                class="edit_input-file edit_input-file_avatar"
+                                type="file"
+                                accept="image/jpeg, image/png"
+                        >
+                        <button class="edit_avatar-delete">
+                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.48842 29.6389C9.48842 31.35 10.9027 32.75 12.6313 32.75H25.2027C26.9313 32.75 28.3456 31.35 28.3456 29.6389V10.9722H9.48842V29.6389ZM12.6313 14.0833H25.2027V29.6389H12.6313V14.0833ZM24.417 6.30556L22.8456 4.75H14.9884L13.417 6.30556H7.91699V9.41667H29.917V6.30556H24.417Z"
+                                      fill="white"/>
+                            </svg>
+                            Удалить
+                        </button>
+                    </div>
+                </fieldset>
+                <fieldset class="edit_name">
+                    <label class="edit_label">
+                        <span class="edit_label-text">Имя:</span>
+                        <input type="text" class="input" name="name">
+                    </label>
+                    <label class="edit_label">
+                        <span class="edit_label-text">Фамилия:</span>
+                        <input type="text" class="input" name="surname">
+                    </label>
+                </fieldset>
+
+                <fieldset class="edit_birthdate">
+                    <legend class="edit_label">Дата рождения:</legend>
+                    <label class="edit_label">
+                        <select type="text" class="edit_select" name="day">
+
+                        </select>
+                    </label>
+                    <label class="edit_label">
+                        <select type="text" class="edit_select" name="month">
+
+                        </select>
+                    </label>
+                    <label class="edit_label">
+                        <select type="text" class="edit_select" name="year">
+
+                        </select>
+                    </label>
+                </fieldset>
+
+                <fieldset class="edit_description">
+                    <label class="edit_label" for="description">Вступительный текст:</label>
+                    <textarea class="edit_description-input" name="description"></textarea>
+                </fieldset>
+
+                <button class="edit_submit-btn">Сохранить изменения</button>
+            </form>
+        </div>
+    </section>
+    <section class="edit edit_wish">
+        <div class="container">
+            <form class="edit_form">
+                <fieldset class="edit_wish">
+                    <label class="edit_label">
+                        <span class="edit_label-text">Описание:</span>
+                        <input type="text" class="input" name="title">
+                    </label>
+                    <label class="edit_label">
+                        <span class="edit_label-text">Категория:</span>
+                        <input type="text" class="input" name="category">
+                    </label>
+                    <div class="edit_wish-price">
+                        <label class="edit_label">
+                            <span class="edit_label-text">Цена:</span>
+                            <input type="text" class="input" name="price">
+                        </label>
+                        <label class="edit_label-select">
+                            <select name="currency" class="edit_select edit_select_currency"></select>
+                        </label>
+                    </div>
+                    <label class="edit_label">
+                        <span class="edit_label-text">Ссылка:</span>
+                        <input type="text" class="input" name="link">
+                    </label>
+                </fieldset>
+
+                <fieldset class="edit_wish-photo">
+                    <label class="edit_label-photo">
+                        <img src="image/no-photo.jpg" alt="" class="edit_wish-image"/>
+                    </label>
+                </fieldset>
+
+                <button class="edit_submit-btn btn">Сохранить изменения</button>
+                <button class="edit_delete-btn btn">Удалить желание</button>
+            </form>
+        </div>
+    </section>
 </main>
 </body>
 </html>
