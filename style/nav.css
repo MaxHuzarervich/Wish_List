@@ -1,0 +1,12 @@
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav_btn {
+    margin-right: 22px;
+}
+
+.nav_btn:last-child {
+    margin-right: 0;
+}
