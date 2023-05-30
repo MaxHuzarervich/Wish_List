@@ -79,8 +79,21 @@ fieldset {
     font-size: 34px;
 }
 
-.wishlist {
+.btn_castling {
+    background: #365ABA;
+    color: #FFFFFF;
+}
+
+.input {
+
+}
+
+.hero {
     display: none;
+}
+
+.wishlist {
+    /*display: none;*/
 }
 
 .edit {
