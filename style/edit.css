@@ -1,0 +1,86 @@
+.edit {
+    margin-bottom: 174px;
+}
+
+.edit_avatar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 113px;
+}
+
+.edit_avatar-image {
+    max-width: 437px;
+    width: 100%;
+    border-radius: 50%;
+    margin-right: 106px;
+}
+
+.edit_avatar-load {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_label-avatar {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    font-size: 38px;
+    margin-bottom: 11px;
+    cursor: pointer;
+}
+
+.edit_avatar-delete {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    font-size: 38px;
+}
+
+.edit_input-file {
+    display: none;
+}
+
+.edit_name {
+    margin-bottom: 44px;
+}
+
+.edit_label {
+    font-size: 50px;
+    max-width: 686px;
+}
+
+.edit_label-text {
+    display: block;
+    margin-bottom: 14px;
+}
+
+.edit_birthdate {
+    margin-bottom: 44px;
+}
+
+.edit_label_select {
+    position: relative;
+}
+
+.edit_label_select:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    background-image: url("../image/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.edit_select {
+
+}
+
+
+
+

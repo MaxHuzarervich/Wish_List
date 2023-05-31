@@ -93,9 +93,9 @@ fieldset {
 }
 
 .wishlist {
-    /*display: none;*/
+    display: none;
 }
 
 .edit {
-    display: none;
+    /*display: none;*/
 }
