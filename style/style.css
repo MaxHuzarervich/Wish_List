@@ -83,3 +83,13 @@ fieldset {
     background: #365ABA;
     color: #FFFFFF;
 }
+
+@media (max-width: 1700px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    .btn {
+        font-size: 28px;
+    }
+}
