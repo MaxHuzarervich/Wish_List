@@ -8,14 +8,22 @@
     align-items: center;
 }
 
-.header_logo {
-
+@media (max-width: 1700px) {
+    .header {
+        padding: 48px 0;
+    }
+    .header_logo {
+        width: 54px;
+        height: 54px;
+    }
 }
 
-.header_nav {
-
-}
-
-.header_burger {
-
+@media (max-width: 1200px) {
+    .header {
+        padding: 38px 0;
+    }
+    .header_logo {
+        width: 48px;
+        height: 48px;
+    }
 }
