@@ -1,7 +1,8 @@
-import {renderNavigation} from "./renderNavigation";
-import {createHero} from "./createHero";
+import {renderNavigation} from "./renderNavigation.js";
+import {createHero} from "./createHero.js";
 
 const app = document.querySelector('.app')
+console.log('app: ', app)
 
 const handleHomePage = () => {
     app.textContent = '';
@@ -13,5 +14,5 @@ const handleHomePage = () => {
 const init = () => {
     handleHomePage();
 }
-debugger
+
 init();

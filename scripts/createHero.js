@@ -1,4 +1,4 @@
-import {createElement} from "./helper";
+import {createElement} from "./helper.js";
 
 export const createHero = () => {
     const section = createElement('section', {

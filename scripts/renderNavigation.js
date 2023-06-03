@@ -1,6 +1,7 @@
-import {createElement} from "./helper";
+import {createElement} from "./helper.js";
 
 const nav = document.querySelector('.nav');
+
 // const burger = createBurgerMenu(nav);
 
 export const renderNavigation = () => {
@@ -25,4 +26,5 @@ export const renderNavigation = () => {
     })
 
     nav.append(buttonSignUp, buttonLogin);
+
 }
