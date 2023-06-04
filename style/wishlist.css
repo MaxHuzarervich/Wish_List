@@ -24,8 +24,17 @@
 }
 
 @media (max-width: 1200px) {
+    .wishlist_profile {
+        margin-bottom: 56px;
+    }
+
     .wishlist_items {
         gap: 30px 20px;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wishlist_description {
+        font-size: 32px;
+        margin-bottom: 84px;
     }
 }

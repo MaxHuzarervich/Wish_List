@@ -25,7 +25,7 @@
     gap: 2px;
     align-items: center;
     font-size: 38px;
-    margin-bottom: 11px;
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
@@ -125,10 +125,6 @@
     border-radius: 15px;
 }
 
-.edit_wish {
-
-}
-
 .edit__wish {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -191,5 +187,36 @@
     margin-right: 0;
 }
 
+@media (max-width: 1200px) {
+    .edit_avatar {
+        margin-bottom: 56px;
+    }
 
+    .edit_avatar-image {
+        max-width: 466px;
+        margin-right: 56px;
+    }
+
+    .edit_name {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .edit_birthdate {
+        margin-bottom: 40px;
+    }
+
+    .edit_description-input {
+        min-height: 311px;
+    }
+
+    .edit_description {
+        margin-bottom: 40px;
+    }
+
+    .edit__wish {
+        grid-template-columns: 1fr;
+    }
+}
 

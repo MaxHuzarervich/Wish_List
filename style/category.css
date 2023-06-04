@@ -8,3 +8,13 @@
     font-size: 50px;
     margin-bottom: 38px;
 }
+
+@media (max-width: 1700px) {
+    .categories_item {
+        max-width: 84px;
+    }
+
+    .categories_title {
+        margin-bottom: 30px;
+    }
+}
