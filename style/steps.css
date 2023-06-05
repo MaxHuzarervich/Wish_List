@@ -19,3 +19,35 @@
     font-size: 92px;
     margin-right: 16px;
 }
+
+@media (max-width: 992px) {
+    .steps {
+        gap: 25px;
+    }
+
+    .steps_item {
+        flex-basis: 204px;
+        font-size: 16px;
+    }
+
+    .steps_item:before {
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 740px) {
+    .steps {
+        flex-direction: column;
+        max-width: 220px;
+    }
+
+    .steps_item {
+        flex-basis: auto;
+        text-align: center;
+    }
+
+    .steps_item:before {
+        margin-right: 16px;
+        font-size: 40px;
+    }
+}

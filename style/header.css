@@ -12,6 +12,7 @@
     .header {
         padding: 48px 0;
     }
+
     .header_logo {
         width: 54px;
         height: 54px;
@@ -22,6 +23,7 @@
     .header {
         padding: 38px 0;
     }
+
     .header_logo {
         width: 48px;
         height: 48px;
@@ -36,6 +38,17 @@
     .header_logo {
         width: 59px;
         height: 59px;
+    }
+}
+
+@media (max-width: 740px) {
+    .header {
+        padding: 16px 0;
+    }
+
+    .header_logo {
+        width: 32px;
+        height: 32px;
     }
 }
 

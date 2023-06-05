@@ -38,3 +38,50 @@
         margin-bottom: 84px;
     }
 }
+
+@media (max-width: 992px) {
+    .wishlist {
+        padding-top: 36px;
+        padding-bottom: 142px;
+    }
+
+    .wishlist_profile {
+        margin-bottom: 64px;
+    }
+
+    .wishlist_description {
+        margin-bottom: 78px;
+    }
+
+    .wishlist_categories {
+        max-width: 544px;
+        margin: 0 auto;
+    }
+
+    .wishlist_items {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+}
+
+@media (max-width: 740px) {
+    .wishlist {
+        padding-top: 16px;
+        padding-bottom: 46px;
+    }
+
+    .wishlist_profile {
+        margin-bottom: 32px;
+    }
+
+    .wishlist_description {
+        font-size: 16px;
+        max-width: 400px;
+        margin: 0 auto 42px;
+        text-align: center;
+    }
+
+    .wishlist_items {
+        gap: 20px;
+    }
+}

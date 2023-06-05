@@ -11,7 +11,6 @@
 
 .item_image {
     width: 300px;
-    height: 300px;
     margin-bottom: 36px;
 }
 
@@ -28,9 +27,44 @@
     margin-bottom: 20px;
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 1200px) {
     .item_image {
         margin-bottom: 40px;
     }
 }
 
+@media (max-width: 992px) {
+    .item {
+        padding: 28px 30px 45px;
+    }
+
+    .item_image {
+        margin-bottom: 36px;
+    }
+
+    .item_title {
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 740px) {
+    .item {
+        padding: 22px 10px 20px;
+        min-height: 360px;
+    }
+
+    .item_image {
+        width: 170px;
+        margin-bottom: 22px;
+    }
+
+    .item_title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .item_price {
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+}
