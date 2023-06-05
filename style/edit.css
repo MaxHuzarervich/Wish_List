@@ -218,5 +218,13 @@
     .edit__wish {
         grid-template-columns: 1fr;
     }
+
+    .edit_label {
+        max-width: 694px;
+    }
+
+    .edit_submit-btn {
+        margin-right: 18px;
+    }
 }
 

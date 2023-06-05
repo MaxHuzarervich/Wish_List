@@ -29,8 +29,8 @@
     }
 
     .wishlist_items {
-        gap: 30px 20px;
         grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
     }
 
     .wishlist_description {
