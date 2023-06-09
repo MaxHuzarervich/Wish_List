@@ -19,7 +19,7 @@ export const renderNavigation = () => {
             title: 'Регистрация',
             description: 'Введите ваши данные для регистрациина сервисе WishList',
             btnSubmit: 'Зарегистрироваться',
-            submitHandler: async (event) => {
+            async submitHandler(event){
                 const formData = new FormData(event.target);
                 const credentials = {
                     login: formData.get('login'),
