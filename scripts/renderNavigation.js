@@ -1,10 +1,12 @@
 import {createElement} from "./helper.js";
 import {createBurgerMenu} from "./createBurgerMenu.js";
-import {API_URL} from "./const.js";
+import {API_URL, JWT_TOKEN_KEY} from "./const.js";
+import {renderModal} from "./renderModal.js";
+import {auth, router} from "./index.js";
 
 const nav = document.querySelector('.nav');
 
-createBurgerMenu(nav, 'nav_active');
+createBurgerMenu(nav, 'nav_active', '.nav_btn');
 
 export const renderNavigation = () => {
     nav.textContent = '';
@@ -19,7 +21,7 @@ export const renderNavigation = () => {
             title: 'Регистрация',
             description: 'Введите ваши данные для регистрациина сервисе WishList',
             btnSubmit: 'Зарегистрироваться',
-            async submitHandler(event){
+            submitHandler: async (event) => {
                 const formData = new FormData(event.target);
                 const credentials = {
                     login: formData.get('login'),
@@ -27,20 +29,24 @@ export const renderNavigation = () => {
                 };
 
                 try {
-                    const resp = await fetch(`${API_URL}/login`, {
+                    const response = await fetch(`${API_URL}/register`, {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify(credentials)
                     });
-                    if (resp.ok) {
+                    if (response.ok) {
                         const data = await resp.json()
-                        console.log(data)
+                        localStorage.setItem(JWT_TOKEN_KEY, data.token);
+                        auth.login = data.login;
+                        router.setRoute(`/user/${data.login}`);
+                        return true;
                     } else {
-                        console.log(await resp.json())
-                        throw new Error('Invalid credentials')
+                        const {message = 'Неизвестная ошибка'} = await response.json();
+                        console.log(message)
+                        throw new Error(message)
                     }
                 } catch (e) {
-
+                    alert(e.message)
                 }
             }
         })
