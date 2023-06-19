@@ -43,7 +43,7 @@ const init = () => {
     if (isMainPage) {
         isMainPage = false;
 
-        if (autorized) {
+        if (auth.login) {
             router.setRoute(`/user/${auth.login}`);
         } else {
             router.setRoute('/')

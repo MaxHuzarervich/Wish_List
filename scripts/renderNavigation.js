@@ -11,6 +11,42 @@ createBurgerMenu(nav, 'nav_active', '.nav_btn');
 export const renderNavigation = () => {
     nav.textContent = '';
 
+    if (auth.login) {
+        const buttonEditProfile = createElement('button', {
+            className: 'nav_btn btn',
+            textContent: 'Редактировать профиль'
+        });
+
+        buttonEditProfile.addEventListener('click', () => {
+            router.setRoute(`/editprofile/${auth.login}`)
+        })
+
+        const buttonAddWish = createElement('button', {
+            className: 'nav_btn btn',
+            textContent: 'Добавить желание'
+        });
+
+        buttonAddWish.addEventListener('click', () => {
+            router.setRoute('/editwish/newwish')
+        })
+
+        const buttonLogout = createElement('button', {
+            className: 'nav_btn btn',
+            textContent: 'Выйти'
+        })
+
+        buttonLogout.addEventListener('click', () => {
+            localStorage.removeItem(JWT_TOKEN_KEY)
+            auth.login = '';
+
+            router.setRoute('/');
+        })
+
+        nav.append(buttonEditProfile, buttonAddWish, buttonLogout)
+
+        return;
+    }
+
     const buttonSignUp = createElement('button', {
         className: 'nav_btn btn',
         textContent: 'Зарегистрироваться'
@@ -35,7 +71,7 @@ export const renderNavigation = () => {
                         body: JSON.stringify(credentials)
                     });
                     if (response.ok) {
-                        const data = await resp.json()
+                        const data = await response.json()
                         localStorage.setItem(JWT_TOKEN_KEY, data.token);
                         auth.login = data.login;
                         router.setRoute(`/user/${data.login}`);
@@ -45,8 +81,8 @@ export const renderNavigation = () => {
                         console.log(message)
                         throw new Error(message)
                     }
-                } catch (e) {
-                    alert(e.message)
+                } catch (error) {
+                    alert(error.message)
                 }
             }
         })
@@ -76,7 +112,7 @@ export const renderNavigation = () => {
                         body: JSON.stringify(credentials)
                     });
                     if (response.ok) {
-                        const data = await resp.json()
+                        const data = await response.json()
                         localStorage.setItem(JWT_TOKEN_KEY, data.token);
                         auth.login = data.login;
                         router.setRoute(`/user/${data.login}`);
@@ -86,8 +122,8 @@ export const renderNavigation = () => {
                         console.log(message)
                         throw new Error(message)
                     }
-                } catch (e) {
-                    alert(e.message)
+                } catch (error) {
+                    alert(error.message)
                 }
             }
         })

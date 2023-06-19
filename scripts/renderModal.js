@@ -73,7 +73,7 @@ export const renderModal = ({
 
     modal.addEventListener('click', ({target}) => {
         if(target === modal || target.closest('.modal_close')){
-            modal.remove()
+            modal.remove();
         }
     })
 
