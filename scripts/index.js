@@ -3,6 +3,7 @@ import {createHero} from "./createHero.js";
 import {JWT_TOKEN_KEY} from "./const.js";
 import {getLogin} from "./service.js";
 import {createWishList} from "./createWishList.js";
+import {createEditProfile} from "./createEditProfile.js";
 
 export const router = Router();
 const token = localStorage.getItem(JWT_TOKEN_KEY);
@@ -13,21 +14,26 @@ const app = document.querySelector('.app')
 
 const handleEditPageRoute = (id) => {
 
-}
-const handleEditProfileRoute = (login) => {
+};
 
-}
+const handleEditProfileRoute = async (login) => {
+    app.textContent = '';
+    const {sectionEditProfile, formProfile} = await createEditProfile(login)
+    renderNavigation('profile', formProfile);
+    app.append(sectionEditProfile)
+};
+
 const handleUserRoute = async (login) => {
     app.textContent = '';
     renderNavigation();
     app.append(await createWishList(login));
-}
+};
 
 const handleHomePage = () => {
     app.textContent = '';
     renderNavigation();
     app.append(createHero());
-}
+};
 
 const init = () => {
     let isMainPage = true;

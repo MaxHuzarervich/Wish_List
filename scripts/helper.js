@@ -19,4 +19,8 @@ export const pluralizeYears = (age) => {
             return 'лет'
         }
     }
+};
+
+export const handleImageFileSelection = (input, image) => {
+
 }
