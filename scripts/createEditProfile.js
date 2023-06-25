@@ -1,6 +1,6 @@
 import {getUser} from "./service.js";
-import {createElement} from "./helper";
-import {API_URL} from "./const";
+import {createElement, createSelectDate, handleImageFileSelection} from "./helper.js";
+import {API_URL} from "./const.js";
 
 export const createEditProfile = async (login) => {
     const user = await getUser(login);
@@ -56,7 +56,7 @@ export const createEditProfile = async (login) => {
         type: 'file',
         id: 'avatar-load',
         accept: 'image/jpeg, image/png',
-        value: `${API_URL}/${user.avatar}`
+        // value: `${API_URL}/${user.avatar}`
     });
 
     handleImageFileSelection(editAvatarInput, editAvatarImage);
@@ -98,7 +98,7 @@ export const createEditProfile = async (login) => {
         value: user.name || ''
     });
 
-    editNameLabel.append(editNameInput)
+    editNameLabel.append(editNameInput);
 
     const editSurNameLabel = createElement('label', {
         className: 'edit_label',
@@ -112,7 +112,104 @@ export const createEditProfile = async (login) => {
         value: user.surname || ''
     });
 
-    editName
+    editSurNameLabel.append(editSurNameInput);
+
+    editName.append(editNameLabel, editSurNameLabel);
+
+    const editBirthday = createElement('fieldset', {
+        className: 'edit_birthdate',
+    });
+
+    const editBirthdayLabel = createElement('legend', {
+        className: 'edit_label edit_label-text',
+        textContent: 'Дата рождения:'
+    });
+
+    const editBirthdayWrapper = createElement('div', {
+        className: 'edit_birthdate-wrapper'
+    });
+
+    editBirthday.append(editBirthdayLabel, editBirthdayWrapper);
+
+    const editBirthdayLabelDay = createElement('label', {
+        className: 'edit_label edit_label_select'
+    });
+
+    const editBirthdaySelectDay = createElement('select', {
+        className: 'edit_select',
+        name: 'day'
+    });
+
+    editBirthdayLabelDay.append(editBirthdaySelectDay)
+
+    const editBirthdayLabelMonth = createElement('label', {
+        className: 'edit_label edit_label_select'
+    });
+
+    const editBirthdaySelectMonth = createElement('select', {
+        className: 'edit_select',
+        name: 'month'
+    });
+
+    editBirthdayLabelMonth.append(editBirthdaySelectMonth)
+
+    const editBirthdayLabelYear = createElement('label', {
+        className: 'edit_label edit_label_select'
+    });
+
+    const editBirthdaySelectYear = createElement('select', {
+        className: 'edit_select',
+        name: 'year'
+    });
+
+    editBirthdayLabelYear.append(editBirthdaySelectYear);
+
+    createSelectDate(
+        editBirthdaySelectDay,
+        editBirthdaySelectMonth,
+        editBirthdaySelectYear,
+        user.birthdate
+    )
+
+    editBirthdayWrapper.append(
+        editBirthdayLabelDay,
+        editBirthdayLabelMonth,
+        editBirthdayLabelYear
+    )
+
+    const editDescription = createElement('fieldset', {
+        className: 'edit_description'
+    });
+
+    const editDescriptionLabel = createElement('label', {
+        className: 'edit_label-text',
+        textContent: 'Вступительный текст:',
+        htmlFor: 'description'
+    });
+
+    const editDescriptionTextarea = createElement('textarea', {
+        className: 'edit_description-input',
+        name: 'description',
+        id: 'description'
+    });
+
+    editDescription.append(editDescriptionLabel, editDescriptionTextarea)
+
+    const editSubmitBtn = createElement('button', {
+        className: 'edit_submit-btn btn',
+        textContent: 'Сохранить изменения',
+        type: 'submit'
+    });
+
+    formProfile.append(
+        editAvatar,
+        editName,
+        editBirthday,
+        editDescription,
+        editSubmitBtn
+    );
+
+    container.append(formProfile);
 
     return {sectionEditProfile, formProfile}
 }
