@@ -17,6 +17,11 @@
     gap: 50px 40px;
 }
 
+.wishlist_no-wish {
+    text-align: center;
+    font-size: 36px;
+}
+
 @media (max-width: 1700px) {
     .wishlist_items {
         gap: 40px 30px;

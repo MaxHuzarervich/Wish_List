@@ -29,7 +29,7 @@ export const createWishList = async pageLogin => {
 
     const avatar = createElement('img', {
         className: 'profile_avatar',
-        src: 'image/user%201.png',
+        src: `${API_URL}/${user.avatar}`,
         alt: 'фото',
     });
 
@@ -48,14 +48,17 @@ export const createWishList = async pageLogin => {
 
     if (user.birthdate) {
         const birthday = new Date(user.birthdate);
-        const day = birthday.getDate();
-        const month = birthday.toLocaleString('default', {month: 'long'});
+        const dayAndMonth = birthday.toLocaleString('default', {
+            month: 'long',
+            day: 'numeric'
+        });
+
         const ageDifMs = Date.now() - birthday.getTime();
         const ageDate = new Date(ageDifMs);
         const age = Math.abs(ageDate.getUTCFullYear() - 1970);
         const plural = pluralizeYears(age);
 
-        const ageMessage = `${day} ${month} исполнится ${age} ${plural}`
+        const ageMessage = `${dayAndMonth} исполнится ${age} ${plural}`
 
         const birthdayElem = createElement('p', {
             className: 'profile_birthday',
