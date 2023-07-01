@@ -1,6 +1,6 @@
 import {createElement, createOptionCurrency, handleImageFileSelection} from "./helper.js";
 import {API_URL, ROUTE_NEW_WISH} from "./const.js";
-import {sendDataWish} from "./service.js";
+import {deleteWish, getWish, sendDataWish, updateDataWish} from "./service.js";
 
 export const createEditWish = async (id) => {
     const wishData = id !== ROUTE_NEW_WISH && (await getWish(id));
@@ -20,14 +20,16 @@ export const createEditWish = async (id) => {
 
     formWish.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
 
-        if (id === ROUTE_NEW_WISH) {
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-
+        if (!wishData) {
             await sendDataWish(data);
-            history.back()
+        } else {
+            await updateDataWish(id, data)
         }
+
+        history.back()
     })
 
     const editWish = createElement('fieldset', {
@@ -46,7 +48,8 @@ export const createEditWish = async (id) => {
     const inputTitle = createElement('input', {
         className: 'edit_input',
         name: 'title',
-        type: 'text'
+        type: 'text',
+        value: wishData.title ?? ''
     });
 
     labelTitle.append(labelTextTitle, inputTitle);
@@ -63,7 +66,8 @@ export const createEditWish = async (id) => {
     const inputCategory = createElement('input', {
         className: 'edit_input',
         name: 'category',
-        type: 'text'
+        type: 'text',
+        value: wishData.category ?? ''
     });
 
     labelCategory.append(labelTextCategory, inputCategory);
@@ -78,13 +82,14 @@ export const createEditWish = async (id) => {
 
     const labelTextPrice = createElement('span', {
         className: 'edit_label-text',
-        textContent: 'Цена:'
+        textContent: 'Цена:',
     });
 
     const inputPrice = createElement('input', {
         className: 'edit_input',
         name: 'price',
-        type: 'number'
+        type: 'number',
+        value: wishData.price ?? ''
     });
 
     labelPrice.append(labelTextPrice, inputPrice);
@@ -98,7 +103,7 @@ export const createEditWish = async (id) => {
         name: 'currency',
     });
 
-    createOptionCurrency(selectCurrency);
+    createOptionCurrency(selectCurrency, wishData.currency);
 
     labelCurrency.append(selectCurrency);
     priceWrapper.append(labelPrice, labelCurrency);
@@ -115,7 +120,8 @@ export const createEditWish = async (id) => {
     const inputLink = createElement('input', {
         className: 'edit_input',
         name: 'link',
-        type: 'text'
+        type: 'text',
+        value: wishData.link ?? ''
     });
 
     labelLink.append(labelTextLink, inputLink);
@@ -132,7 +138,7 @@ export const createEditWish = async (id) => {
 
     const photo = createElement('img', {
         className: 'edit_wish-image',
-        src: 'image/no-photo.jpg',
+        src: wishData.image ? `${API_URL}/${wishData.image}` : 'image/no-photo.jpg',
         alt: 'фото желания'
     });
 
@@ -155,13 +161,14 @@ export const createEditWish = async (id) => {
                                   fill="#365ABA"/>
                         </svg>
         `,
-        style: photo.src.includes(API_URL) || 'display: none'
+        style: photo.src.includes(API_URL) && !photo.src.includes('empty') || 'display: none'
     });
 
     const editHiddenInput = createElement('input', {
         className: 'edit_input-file edit_input-file_avatar',
         type: 'hidden',
-        name: 'image'
+        name: 'image',
+        value: wishData.image ? `${API_URL}/${wishData.image}` : ''
     });
 
     inputPhoto.addEventListener('change', () => {
@@ -194,6 +201,11 @@ export const createEditWish = async (id) => {
         textContent: 'Удалить желание',
         type: 'button'
     });
+
+    btnDeleteWish.addEventListener('click', async () => {
+       await deleteWish(id);
+       history.back();
+    })
 
     editSubmitWrapper.append(btnSaveWish, btnDeleteWish)
 

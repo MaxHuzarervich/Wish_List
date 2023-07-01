@@ -79,9 +79,7 @@ export const sendDataWish = async (wishData) => {
             body: JSON.stringify(wishData)
         });
 
-        const data = await response.json();
-
-        return data
+        return await response.json()
 
     } catch (e) {
         console.error(e)
@@ -101,6 +99,52 @@ export const getWish = async (id) => {
     try {
         const response = await fetch(`${API_URL}/wish/${id}`, {
             method: 'GET',
+            headers,
+        });
+
+        return await response.json();
+    } catch (e) {
+        console.error(e)
+    }
+};
+
+export const updateDataWish = async (id, wishData) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(wishData)
+        });
+
+        return await response.json()
+
+    } catch (e) {
+        console.error(e)
+    }
+};
+
+export const deleteWish = async (id) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'DELETE',
             headers,
         });
 
