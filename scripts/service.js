@@ -61,3 +61,51 @@ export const sendDataUser = async (id, userData) => {
         console.error(e)
     }
 };
+
+export const sendDataWish = async (wishData) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/addWish`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(wishData)
+        });
+
+        const data = await response.json();
+
+        return data
+
+    } catch (e) {
+        console.error(e)
+    }
+};
+
+export const getWish = async (id) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'GET',
+            headers,
+        });
+
+        return await response.json();
+    } catch (e) {
+        console.error(e)
+    }
+};

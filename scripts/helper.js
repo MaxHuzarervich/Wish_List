@@ -42,10 +42,9 @@ export const handleImageFileSelection = (inputFile, image, inputHidden) => {
 
 export const createSelectDate = (SelectDay, SelectMonth, SelectYear, birthdate) => {
     for (let day = 0; day <= 31; day++) {
-        const option = document.createElement('option', {
-            value: day ? day : '',
-            text: day ? day : ''
-        });
+        const option = document.createElement('option');
+        option.value = day ? day : '';
+        option.text = day ? day : '';
         SelectDay.append(option)
     }
 
@@ -54,10 +53,9 @@ export const createSelectDate = (SelectDay, SelectMonth, SelectYear, birthdate) 
     ]
 
     for (let i = 0; i < months.length; i++) {
-        const option = createElement('option', {
-            value: i,
-            text: months[i]
-        });
+        const option = createElement('option');
+        option.value = i;
+        option.text = months[i];
         SelectMonth.append(option)
     }
 
@@ -69,10 +67,9 @@ export const createSelectDate = (SelectDay, SelectMonth, SelectYear, birthdate) 
     SelectYear.append(optionYear)
 
     for (let year = currentYear; year >= currentYear - 100; year--) {
-        const option = document.createElement('option', {
-            value: year,
-            text: year
-        });
+        const option = document.createElement('option');
+        option.value = year;
+        option.text = year
         SelectYear.append(option)
     }
 
@@ -94,11 +91,9 @@ export const createOptionCurrency = select => {
     const currencies = ['RUB', 'USD', 'EUR', 'GBP'];
 
     for (let i = 0; i < currencies.length; i++) {
-        const option = createElement('option', {
-            value: currencies[i],
-            text: currencies[i]
-        });
-
+        const option = createElement('option');
+        option.value = currencies[i];
+        option.text = currencies[i]
         select.append(option)
     }
 };

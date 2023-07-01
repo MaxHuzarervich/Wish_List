@@ -1,11 +1,10 @@
 import {createElement, createOptionCurrency, handleImageFileSelection} from "./helper.js";
 import {API_URL, ROUTE_NEW_WISH} from "./const.js";
+import {sendDataWish} from "./service.js";
 
 export const createEditWish = async (id) => {
+    const wishData = id !== ROUTE_NEW_WISH && (await getWish(id));
 
-    if (id === ROUTE_NEW_WISH) {
-
-    }
 
     const sectionEditWish = createElement('section', {
         className: 'edit edit_wish'
@@ -18,6 +17,18 @@ export const createEditWish = async (id) => {
     const formWish = createElement('form', {
         className: 'edit_form'
     });
+
+    formWish.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (id === ROUTE_NEW_WISH) {
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            await sendDataWish(data);
+            history.back()
+        }
+    })
 
     const editWish = createElement('fieldset', {
         className: 'edit__wish'

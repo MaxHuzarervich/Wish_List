@@ -3,7 +3,7 @@ import {getUser} from "./service.js";
 import {createElement, pluralizeYears} from "./helper.js";
 import {API_URL} from "./const.js";
 
-export const createWishList = async pageLogin => {
+export const createWishList = async (pageLogin) => {
     const login = auth.login;
 
     if (!pageLogin) {
@@ -12,6 +12,10 @@ export const createWishList = async pageLogin => {
 
     const user = await getUser(pageLogin);
 
+    if (!user.login) {
+        router.setRoute('/');
+        return;
+    }
 
     const section = createElement('section', {
         className: 'wishlist',
@@ -139,18 +143,29 @@ export const createWishList = async pageLogin => {
 
                 const itemImg = createElement('img', {
                     className: 'item_image',
-                    src: `${API_URL}/${item.img}`,
+                    src: `${API_URL}/${item.image}`,
                     alt: item.title
                 });
 
                 const itemTitle = createElement('h4', {
                     className: 'item_title',
-                    textContent: item.title
                 });
+
+                if (item.link) {
+                    const itemLink = createElement('a', {
+                        className: 'item_link',
+                        href: item.link,
+                        textContent: item.title,
+                        target: '_blank'
+                    })
+                    itemTitle.append(itemLink)
+                } else {
+                    itemTitle.textContent = item.title
+                }
 
                 const itemPrice = createElement('p', {
                     className: 'item_price',
-                    textContent: `${item.price} ${item.currency}`,
+                    textContent: item.price && `${item.price} ${item.currency}`,
                 });
 
                 itemElem.append(itemImg, itemTitle, itemPrice)
